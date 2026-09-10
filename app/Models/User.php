@@ -2,16 +2,23 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Post;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    /**
+     * Get the posts for the user.
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 
     /**
      * The attributes that are mass assignable.

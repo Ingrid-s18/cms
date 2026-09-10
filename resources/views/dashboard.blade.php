@@ -4,20 +4,19 @@
 
 @section('content')
 
+<div class="page-content">
+
     <h1>Bienvenido al Dashboard</h1>
 
     <p>
         Has iniciado sesión correctamente.
     </p>
 
-    <form method="POST" action="{{ route('logout') }}">
-
+    <form action="{{ route('logout') }}" method="POST">
         @csrf
-
-        <button type="submit">
-            Cerrar sesión
-        </button>
-
+        <button type="submit">Cerrar sesión</button>
     </form>
+
+</div>
 
 @endsection

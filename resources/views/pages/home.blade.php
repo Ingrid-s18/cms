@@ -4,6 +4,8 @@
 
 @section('content')
 
+<div class="page-content">
+
 <div class="container">
 
     <h1>Portal Seguro</h1>

@@ -1,65 +1,202 @@
 @extends('layouts.app')
 
-@section('title', 'Iniciar sesión')
+@section('title', 'Portal Seguro')
 
 @section('content')
 
-    <h1>Iniciar sesión</h1>
+<div class="login-page">
 
-    <form method="POST" action="{{ route('login.store') }}">
+    <div class="login-card">
 
-        @csrf
+        <!-- Icono -->
 
-        <div>
-            <label for="email">Correo electrónico</label>
+        <div class="login-icon">
+            🔒
+        </div>
 
-            <input
-                id="email"
-                type="email"
-                name="email"
-                value="{{ old('email') }}"
-                required
-                maxlength="150"
-                autocomplete="email"
+
+        <!-- Encabezado -->
+
+        <h1>Portal Seguro</h1>
+
+        <p class="login-subtitle">
+            Inicia sesión para continuar a tu cuenta
+        </p>
+
+
+        <!-- Formulario -->
+
+        <form method="POST" action="{{ route('login.store') }}">
+
+            @csrf
+
+
+            <!-- Correo -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Correo electrónico
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="{{ old('email') }}"
+                        placeholder="Ingresa tu correo electrónico"
+                        required
+                        autocomplete="email"
+                    >
+
+                </div>
+
+
+                @error('email')
+
+                    <span class="error-message">
+                        {{ $message }}
+                    </span>
+
+                @enderror
+
+            </div>
+
+
+            <!-- Contraseña -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Contraseña
+                </label>
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Ingresa tu contraseña"
+                        required
+                        autocomplete="current-password"
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        onclick="togglePassword()"
+                    >
+                        👁
+                    </button>
+
+                </div>
+
+
+                @error('password')
+
+                    <span class="error-message">
+                        {{ $message }}
+                    </span>
+
+                @enderror
+
+            </div>
+
+
+            <!-- Recordarme -->
+
+            <div class="remember-container">
+
+                <label class="remember-label">
+
+                    <input
+                        type="checkbox"
+                        name="remember"
+                        value="1"
+                    >
+
+                    <span>
+                        Recordarme
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- Botón -->
+
+            <button
+                type="submit"
+                class="login-button"
             >
 
-            @error('email')
-                <p>{{ $message }}</p>
-            @enderror
+                <span>→</span>
+
+                Iniciar sesión
+
+            </button>
+
+        </form>
+
+
+        <!-- Registro -->
+
+        <div class="register-section">
+
+            <p>
+                ¿No tienes una cuenta?
+            </p>
+
+            <a href="{{ route('register') }}">
+                ✚ Regístrate aquí
+            </a>
+
         </div>
 
-        <div>
-            <label for="password">Contraseña</label>
+    </div>
 
-            <input
-                id="password"
-                type="password"
-                name="password"
-                required
-                autocomplete="current-password"
-            >
+</div>
 
-            @error('password')
-                <p>{{ $message }}</p>
-            @enderror
-        </div>
 
-        <div>
-            <label>
-                <input
-                    type="checkbox"
-                    name="remember"
-                    value="1"
-                >
+<script>
 
-                Recordarme
-            </label>
-        </div>
+function togglePassword() {
 
-        <button type="submit">
-            Iniciar sesión
-        </button>
+    const password =
+        document.getElementById('password');
 
-    </form>
+    const button =
+        document.querySelector('.password-toggle');
+
+
+    if (password.type === 'password') {
+
+        password.type = 'text';
+
+        button.textContent = '🙈';
+
+    } else {
+
+        password.type = 'password';
+
+        button.textContent = '👁';
+
+    }
+
+}
+
+</script>
 
 @endsection
