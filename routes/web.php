@@ -15,6 +15,12 @@ Route::get('/about', [PageController::class, 'about'])
 Route::get('/contact', [PageController::class, 'contact'])
     ->name('contact');
 
+Route::get('/security', [PageController::class, 'security'])
+    ->name('security');
+
+Route::get('/information', [PageController::class, 'information'])
+    ->name('information');
+
 Route::post('/contact', [PageController::class, 'sendContact'])
     ->middleware('throttle:10,1')
     ->name('contact.send');

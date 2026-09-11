@@ -4,66 +4,118 @@
 
 @section('content')
 
-    <h1>Contacto</h1>
+<div class="contact-page">
 
-    @if (session('status'))
-        <p>{{ session('status') }}</p>
-    @endif
+    <div class="contact-card">
 
-    <form method="POST" action="{{ route('contact.send') }}">
-
-        @csrf
-
-        <div>
-            <label for="name">Nombre</label>
-            <input
-                id="name"
-                type="text"
-                name="name"
-                value="{{ old('name') }}"
-                required
-                maxlength="100"
-            >
-
-            @error('name')
-                <p>{{ $message }}</p>
-            @enderror
+        {{-- ICONO --}}
+        <div class="contact-icon">
+            ✉️
         </div>
 
-        <div>
-            <label for="email">Correo electrónico</label>
-            <input
-                id="email"
-                type="email"
-                name="email"
-                value="{{ old('email') }}"
-                required
-                maxlength="150"
-            >
+        {{-- TITULO --}}
+        <h1>Contáctanos</h1>
 
-            @error('email')
-                <p>{{ $message }}</p>
-            @enderror
-        </div>
+        {{-- SUBTITULO --}}
+        <p class="contact-subtitle">
+            Si tienes alguna pregunta o necesitas ayuda, puedes consultarlo aquí.
+            
+            Este es el portal de información que usan los guerreros y piratas, con gusto te ayudaremos.
+            
+            Estaremos encantados de atenderte.
+        </p>
 
-        <div>
-            <label for="message">Mensaje</label>
-            <textarea
-                id="message"
-                name="message"
-                required
-                maxlength="2000"
-            >{{ old('message') }}</textarea>
+        {{-- LINEA --}}
+        <div class="contact-divider"></div>
 
-            @error('message')
-                <p>{{ $message }}</p>
-            @enderror
-        </div>
+        {{-- FORMULARIO --}}
+        <form class="contact-form">
 
-        <button type="submit">
-            Enviar
-        </button>
+            {{-- NOMBRE --}}
+            <div class="contact-form-group">
 
-    </form>
+                <label for="name">
+                    Nombre
+                </label>
+
+                <div class="contact-input-wrapper">
+
+                    <span class="contact-input-icon">
+                        👤
+                    </span>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Ingresa tu nombre"
+                    >
+
+                </div>
+
+            </div>
+
+
+            {{-- CORREO --}}
+            <div class="contact-form-group">
+
+                <label for="email">
+                    Correo electrónico
+                </label>
+
+                <div class="contact-input-wrapper">
+
+                    <span class="contact-input-icon">
+                        ✉
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Ingresa tu correo electrónico"
+                    >
+
+                </div>
+
+            </div>
+
+
+            {{-- MENSAJE --}}
+            <div class="contact-form-group">
+
+                <label for="message">
+                    Mensaje
+                </label>
+
+                <div class="contact-input-wrapper textarea-wrapper">
+
+                    <span class="contact-input-icon textarea-icon">
+                        💬
+                    </span>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Escribe tu mensaje..."
+                        rows="6"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            {{-- BOTON --}}
+            <button type="submit" class="contact-button">
+                <span>✈</span>
+                Enviar mensaje
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
 
 @endsection

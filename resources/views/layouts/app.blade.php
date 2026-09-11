@@ -55,7 +55,19 @@
                 </a>
                 <a href="{{ route('contact') }}">
                     Contacto
+            </a>
+                <a href="{{ route('security') }}">
+                    Seguridad
                 </a>
+                <a href="{{ route('information') }}">
+                     Información
+                </a>
+
+                @auth
+                    <a href="{{ route('posts.index') }}">
+                        Publicaciones
+                    </a>
+                @endauth
             </nav>
 
             <!-- Acceso -->

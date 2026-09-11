@@ -4,41 +4,152 @@
 
 @section('content')
 
-<div class="page-content">
+<div class="page-container">
 
-    <h1>Publicaciones</h1>
+    <div class="page-card">
 
-    <a href="{{ route('posts.create') }}">
-        Crear publicación
-    </a>
+        <!-- TÍTULO -->
 
-    @if ($posts->isEmpty())
+        <h1>
+            Publicaciones de los aventureros
+        </h1>
 
-        <p>No hay publicaciones todavía.</p>
+        <p>
+            Aquí puedes ver, crear y administrar todas las publicaciones
+            de tus aventuras de una manera segura.
+        </p>
 
-    @else
+        <!-- BOTÓN CREAR -->
 
-        @foreach ($posts as $post)
+        <div class="posts-header">
 
-            <article>
-                <h2>{{ $post->title }}</h2>
+            <a href="{{ route('posts.create') }}" class="btn-primary">
+                ＋ Crear Nueva Publicación
+            </a>
 
-                <p>{{ $post->body }}</p>
+        </div>
+
+
+        <!-- MENSAJE -->
+
+        @if(session('status'))
+
+            <div class="message message-success">
+                {{ session('status') }}
+            </div>
+
+        @endif
+
+
+        <!-- PUBLICACIONES -->
+
+        @if($posts->count())
+
+            <div class="posts-container">
+
+                @foreach($posts as $post)
+
+                    <div class="post-card">
+
+
+                        <!-- INFORMACIÓN DE LA PUBLICACIÓN -->
+
+                        <div class="post-information">
+
+                            <h2>
+                                {{ $post->title }}
+                            </h2>
+
+                            <p>
+                                {{ $post->body }}
+                            </p>
+
+                            <small>
+                                Publicado por:
+                                <strong>
+                                    {{ $post->user->name }}
+                                </strong>
+                            </small>
+
+                        </div>
+
+
+                        <!-- ACCIONES -->
+
+                        <div class="post-actions">
+
+                            <a
+                                href="{{ route('posts.show', $post) }}"
+                                class="action-link"
+                            >
+                                Ver
+                            </a>
+
+
+                            @can('update', $post)
+
+                                <a
+                                    href="{{ route('posts.edit', $post) }}"
+                                    class="action-link"
+                                >
+                                    Editar
+                                </a>
+
+                            @endcan
+
+
+                            @can('delete', $post)
+
+                                <form
+                                    action="{{ route('posts.destroy', $post) }}"
+                                    method="POST"
+                                    class="delete-form"
+                                >
+
+                                    @csrf
+
+                                    @method('DELETE')
+
+                                    <button
+                                        type="submit"
+                                        class="delete-link"
+                                    >
+                                        Eliminar
+                                    </button>
+
+                                </form>
+
+                            @endcan
+
+                        </div>
+
+                    </div>
+
+                @endforeach
+
+            </div>
+
+        @else
+
+            <div class="empty-posts">
+
+                <div class="page-icon">
+                    📝
+                </div>
+
+                <h2>
+                    No hay publicaciones
+                </h2>
 
                 <p>
-                    Autor: {{ $post->user->name }}
+                    No hay publicaciones disponibles todavía.
                 </p>
 
-                <a href="{{ route('posts.show', $post) }}">
-                    Ver publicación
-                </a>
-            </article>
+            </div>
 
-            <hr>
+        @endif
 
-        @endforeach
-
-    @endif
+    </div>
 
 </div>
 

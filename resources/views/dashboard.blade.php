@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
+@section('title', 'Página principal')
 
 @section('content')
 
 <div class="page-content">
 
-    <h1>Bienvenido al Dashboard</h1>
+    <h1>Bienvenido a tu nuevo mundo</h1>
 
     <p>
-        Has iniciado sesión correctamente.
+        Has iniciado sesión correctamente en este portal.
     </p>
 
     <form action="{{ route('logout') }}" method="POST">

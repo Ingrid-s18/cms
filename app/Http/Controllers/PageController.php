@@ -21,6 +21,16 @@ class PageController extends Controller
         return view('pages.contact');
     }
 
+    public function security()
+    {
+        return view('pages.security');
+    }
+
+    public function information()
+    {
+        return view('pages.information');
+    }
+    
     public function sendContact(Request $request)
     {
         $validated = $request->validate([
