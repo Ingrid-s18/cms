@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-
+    
 <style>
     .page-content {
         text-align: center;
@@ -30,7 +30,7 @@
     </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -41,7 +41,9 @@
         <div class="navbar-container">
             <!-- Logo -->
             <a href="{{ route('home') }}" class="brand">
-                <span class="brand-icon">🔒</span>
+                <span class="brand-icon">
+                   <i class="bi bi-shield-lock"></i> 
+                </span>
                 <span>Portal Seguro</span>
             </a>
 
@@ -74,11 +76,13 @@
             <div class="nav-auth">
                 @auth
                     <a href="{{ route('dashboard') }}" class="login-nav">
-                        👤 Mi cuenta
+                        <i class="bi bi-person-circle"></i>
+                        Mi cuenta
                     </a>
                 @else
                     <a href="{{ route('login') }}" class="login-nav">
-                        👤 Iniciar sesión
+                        <i cass="bi bi-person-circle"></i>
+                        Iniciar sesión
                     </a>
                 @endauth
             </div>

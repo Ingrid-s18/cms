@@ -10,14 +10,10 @@
 
     <h1>Acerca del proyecto</h1>
 
-    <p>
-        Este lugar está diseñado para que guerreros y piratas de cualquier parte del mundo, encuentren a donde escapar.
-        
-        Además es un sitio desarrollado utilizando Laravel.
+    <p>       
+        El portal seguro es un sitio desarrollado utilizando Laravel.
          
         También tiene buenas prácticas de desarrollo seguro.
-
-        Es perfecto para olvidar la aburrida realidad y empezar a soñar con grandes aventuras.
     </p>
 
 </div>

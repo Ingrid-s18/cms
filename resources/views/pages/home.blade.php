@@ -8,14 +8,10 @@
 
 <div class="container">
 
-    <h1>Portal Seguro a otro mundo</h1>
+    <h1>Portal Seguro </h1>
 
     <p>
-        Bienvenido a esta nueva dimensión, algunos le dicen sitio web desarrollado con Laravel.
-        
-        Aquí preferimos llamarlo el escape a otra realidad.
-        
-        Espero lo disfrutes.
+        Bienvenido a tu portal seguro, sitio web desarrollado con Laravel.
     </p>
 
 </div>

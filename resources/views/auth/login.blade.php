@@ -8,14 +8,9 @@
 
     <div class="login-card">
 
-        <!-- Icono -->
-
         <div class="login-icon">
-            🔒
+            <i class="bi bi-shield-lock"></i>
         </div>
-
-
-        <!-- Encabezado -->
 
         <h1>Portal Seguro</h1>
 
@@ -23,15 +18,9 @@
             Inicia sesión para continuar a tu cuenta
         </p>
 
-
-        <!-- Formulario -->
-
         <form method="POST" action="{{ route('login.store') }}">
 
             @csrf
-
-
-            <!-- Correo -->
 
             <div class="form-group">
 
@@ -42,7 +31,7 @@
                 <div class="input-wrapper">
 
                     <span class="input-icon">
-                        ✉
+                        <i class="bi bi-envelope"></i>
                     </span>
 
                     <input
@@ -57,7 +46,6 @@
 
                 </div>
 
-
                 @error('email')
 
                     <span class="error-message">
@@ -68,9 +56,6 @@
 
             </div>
 
-
-            <!-- Contraseña -->
-
             <div class="form-group">
 
                 <label for="password">
@@ -80,7 +65,7 @@
                 <div class="input-wrapper">
 
                     <span class="input-icon">
-                        🔒
+                        <i class="bi bi-lock"></i>
                     </span>
 
                     <input
@@ -97,11 +82,10 @@
                         class="password-toggle"
                         onclick="togglePassword()"
                     >
-                        👁
+                        <i class="bi bi-eye"></i>
                     </button>
 
                 </div>
-
 
                 @error('password')
 
@@ -112,9 +96,6 @@
                 @enderror
 
             </div>
-
-
-            <!-- Recordarme -->
 
             <div class="remember-container">
 
@@ -134,9 +115,6 @@
 
             </div>
 
-
-            <!-- Botón -->
-
             <button
                 type="submit"
                 class="login-button"
@@ -149,9 +127,6 @@
             </button>
 
         </form>
-
-
-        <!-- Registro -->
 
         <div class="register-section">
 
@@ -185,13 +160,13 @@ function togglePassword() {
 
         password.type = 'text';
 
-        button.textContent = '🙈';
+        button.textContent = 'mostrar clave';
 
     } else {
 
         password.type = 'password';
 
-        button.textContent = '👁';
+        button.textContent = 'bi-eye';
 
     }
 

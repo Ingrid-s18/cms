@@ -10,7 +10,7 @@
 
         {{-- ICONO --}}
         <div class="contact-icon">
-            ✉️
+           <i class="bi bi-envelope"></i> 
         </div>
 
         {{-- TITULO --}}
@@ -20,7 +20,7 @@
         <p class="contact-subtitle">
             Si tienes alguna pregunta o necesitas ayuda, puedes consultarlo aquí.
             
-            Este es el portal de información que usan los guerreros y piratas, con gusto te ayudaremos.
+            Este es el portal de información, con gusto te ayudaremos.
             
             Estaremos encantados de atenderte.
         </p>
@@ -41,7 +41,7 @@
                 <div class="contact-input-wrapper">
 
                     <span class="contact-input-icon">
-                        👤
+                        <i class="bi bi-person"></i>
                     </span>
 
                     <input
@@ -66,7 +66,7 @@
                 <div class="contact-input-wrapper">
 
                     <span class="contact-input-icon">
-                        ✉
+                        <i class="bi bi-envelope"></i>
                     </span>
 
                     <input
@@ -91,7 +91,7 @@
                 <div class="contact-input-wrapper textarea-wrapper">
 
                     <span class="contact-input-icon textarea-icon">
-                        💬
+                        <i class="bi bi-chat-left-text"></i>
                     </span>
 
                     <textarea
@@ -108,7 +108,7 @@
 
             {{-- BOTON --}}
             <button type="submit" class="contact-button">
-                <span>✈</span>
+                <span><span><i class="bi bi-send"></i></span>
                 Enviar mensaje
             </button>
 
