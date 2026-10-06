@@ -1,0 +1,9 @@
+]8;;https://github.com/FakerPHP/Faker/tree/v1.24.1\fakerphp/faker]8;;\       1.24.1  Faker is a PHP library that generates fake data for you.
+]8;;https://github.com/laravel/framework\laravel/framework]8;;\    12.67.0 The Laravel Framework.
+]8;;https://github.com/laravel/pail\laravel/pail]8;;\         1.2.7   Easily delve into your Laravel application's log files dire...
+]8;;https://github.com/laravel/pint\laravel/pint]8;;\         1.30.4  An opinionated code formatter for PHP.
+]8;;https://github.com/laravel/sail\laravel/sail]8;;\         1.67.0  Docker files for running a basic Laravel application.
+]8;;https://github.com/laravel/tinker/tree/v2.11.1\laravel/tinker]8;;\       2.11.1  Powerful REPL for the Laravel framework.
+]8;;https://github.com/mockery/mockery\mockery/mockery]8;;\      1.6.15  Mockery is a simple yet flexible PHP mock object framework
+]8;;https://github.com/nunomaduro/collision\nunomaduro/collision]8;;\ 8.9.5   Cli error handling for console/command-line PHP applications.
+]8;;https://github.com/sebastianbergmann/phpunit/tree/11.5.56\phpunit/phpunit]8;;\      11.5.56 The PHP Unit Testing framework.

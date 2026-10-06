@@ -1,0 +1,3 @@
+]8;;https://github.com/laravel/framework\laravel/framework]8;;\ 12.67.0 [31m12.69.3[39m The Laravel Framework.
+]8;;https://github.com/laravel/sail\laravel/sail]8;;\      1.67.0  [31m1.68.0 [39m Docker files for running a basic Laravel application.
+]8;;https://github.com/laravel/tinker/tree/v2.11.1\laravel/tinker]8;;\    2.11.1  [33m3.0.2  [39m Powerful REPL for the Laravel framework.
