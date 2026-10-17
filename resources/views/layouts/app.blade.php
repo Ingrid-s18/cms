@@ -26,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
-        @yield('title', 'Portal Seguro')
+        @yield('title', 'Portal CMS')
     </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -44,7 +44,7 @@
                 <span class="brand-icon">
                    <i class="bi bi-shield-lock"></i> 
                 </span>
-                <span>Portal Seguro</span>
+                <span>Portal CMS</span>
             </a>
 
             <!-- Navegación -->
