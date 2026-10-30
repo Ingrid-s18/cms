@@ -6,7 +6,7 @@
 
 <div class="page-content">
 
-    <h1>Bienvenido a tu nuevo mundo</h1>
+    <h1>Bienvenido al portal</h1>
 
     <p>
         Has iniciado sesión correctamente en este portal.

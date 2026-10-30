@@ -11,12 +11,12 @@
         <!-- TÍTULO -->
 
         <h1>
-            Publicaciones de los aventureros
+            Publicaciones 
         </h1>
 
         <p>
             Aquí puedes ver, crear y administrar todas las publicaciones
-            de tus aventuras de una manera segura.
+            de una manera segura.
         </p>
 
         <!-- BOTÓN CREAR -->
