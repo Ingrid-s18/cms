@@ -6,11 +6,12 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Mostrar la carta oficial de platos en el Menú.
      */
     public function index()
     {
@@ -20,7 +21,7 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Formulario para añadir un nuevo plato a la carta.
      */
     public function create()
     {
@@ -28,19 +29,24 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacenar un nuevo plato con soporte de imagen dinámica.
      */
     public function store(StorePostRequest $request)
     {
-        $post = $request->user()->posts()->create(
-            $request->validated()
-    );
+        $data = $request->validated();
 
-        return redirect()->route('posts.show', $post);
+        // Si se subió un archivo de imagen, guardarlo en storage/app/public/platos
+        if ($request->hasFile('imagen')) {
+            $data['imagen'] = $request->file('imagen')->store('platos', 'public');
+        }
+
+        $post = $request->user()->posts()->create($data);
+
+        return redirect()->route('posts.show', $post)->with('success', '¡Plato añadido a la carta con éxito!');
     }
 
     /**
-     * Display the specified resource.
+     * Mostrar la ficha técnica de un plato.
      */
     public function show(Post $post)
     {
@@ -50,7 +56,7 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Formulario para editar un plato (restringido al autor).
      */
     public function edit(Post $post)
     {
@@ -60,26 +66,42 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualizar los datos del plato y sustituir la imagen si se envía una nueva.
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
         Gate::authorize('update', $post);
 
-        $post->update($request->validated());
+        $data = $request->validated();
 
-        return redirect()->route('posts.show', $post);
+        if ($request->hasFile('imagen')) {
+            // Eliminar la imagen previa si está almacenada en el disco público
+            if ($post->imagen && Storage::disk('public')->exists($post->imagen)) {
+                Storage::disk('public')->delete($post->imagen);
+            }
+
+            // Guardar el nuevo archivo en storage/app/public/platos
+            $data['imagen'] = $request->file('imagen')->store('platos', 'public');
+        }
+
+        $post->update($data);
+
+        return redirect()->route('posts.show', $post)->with('success', '¡Plato actualizado con éxito!');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar un plato de la carta y borrar su imagen asociada del servidor.
      */
     public function destroy(Post $post)
     {
         Gate::authorize('delete', $post);
 
+        if ($post->imagen && Storage::disk('public')->exists($post->imagen)) {
+            Storage::disk('public')->delete($post->imagen);
+        }
+
         $post->delete();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'El plato ha sido eliminado de la carta oficial.');
     }
 }

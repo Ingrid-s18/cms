@@ -1,0 +1,18 @@
+composer-runtime-api 2.2.2      [32msuccess[39m                                       
+ext-ctype            *          [32msuccess[39m [33mprovided by symfony/polyfill-ctype[39m    
+ext-dom              20031129   [32msuccess[39m                                       
+ext-fileinfo         8.3.36     [32msuccess[39m                                       
+ext-filter           8.3.36     [32msuccess[39m                                       
+ext-hash             8.3.36     [32msuccess[39m                                       
+ext-iconv            8.3.36     [32msuccess[39m                                       
+ext-json             8.3.36     [32msuccess[39m                                       
+ext-libxml           8.3.36     [32msuccess[39m                                       
+ext-mbstring         *          [32msuccess[39m [33mprovided by symfony/polyfill-mbstring[39m 
+ext-openssl          8.3.36     [32msuccess[39m                                       
+ext-pcre             8.3.36     [32msuccess[39m                                       
+ext-phar             8.3.36     [32msuccess[39m                                       
+ext-session          8.3.36     [32msuccess[39m                                       
+ext-tokenizer        8.3.36     [32msuccess[39m                                       
+ext-xml              8.3.36     [32msuccess[39m                                       
+ext-xmlwriter        8.3.36     [32msuccess[39m                                       
+php                  8.3.36     [32msuccess[39m                                       
